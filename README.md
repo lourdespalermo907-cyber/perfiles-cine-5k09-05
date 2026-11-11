@@ -23,30 +23,6 @@ El cuestionario distribuye sus diez títulos entre varios géneros. Solo **una p
 
 En «Lo que encontramos» la matriz 2 × 2 usa nombres abreviados para evitar superposiciones, muestra cantidades y porcentajes y conserva los nombres completos en la información al pasar el cursor.
 
-## Requisitos
-
-Python **3.12** recomendado en Windows; no usar Python 3.15 con dependencias que puedan no tener ruedas binarias disponibles.
-
-1. Descomprimir el ZIP conservando todos los archivos juntos.
-2. Abrir PowerShell en esta carpeta.
-3. Crear entorno virtual:
-   ```powershell
-   py -3.12 -m venv .venv
-   ```
-4. Instalar dependencias sin activar el entorno:
-   ```powershell
-   .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-   ```
-5. Opcional: verificar datos, etiquetas y recomendaciones:
-   ```powershell
-   .\.venv\Scripts\python.exe -m pytest -q
-   .\.venv\Scripts\python.exe build_app.py
-   ```
-6. Abrir Streamlit:
-   ```powershell
-   .\.venv\Scripts\python.exe -m streamlit run app.py
-   ```
-7. Ir a `http://localhost:8501`.
 
 ## Archivos
 
@@ -74,17 +50,6 @@ Python **3.12** recomendado en Windows; no usar Python 3.15 con dependencias que
 
 Se entrenó con al menos 150 películas por usuario, pero el cuestionario pide entre 6 y 10. Las inferencias son **provisionales**. Si dos personas valoran las mismas películas, las **proporciones por década son iguales aunque sus estrellas difieran**. No hay probabilidades calibradas y la muestra fija no permite validar preferencias personales.
 
-Para convertirlo en un recomendador validado sería necesario recuperar los ratings originales por usuario y película, entrenar/evaluar sobre interacciones no vistas y evitar recomendar películas ya consumidas.
-
-## Cómo publicarla en Streamlit Community Cloud
-
-1. Crear un repositorio de GitHub y subir el código del proyecto, incluyendo este módulo, la documentación y el dataset (sin la carpeta `.venv`).
-2. En [share.streamlit.io](https://share.streamlit.io) conectar el repositorio.
-3. Elegir `app.py` como archivo principal; Streamlit instala las dependencias de `requirements.txt`.
-4. En **Advanced settings** escoger una versión soportada de Python, preferentemente **3.12** si está disponible.
-5. Desplegar y abrir la URL **desde otro navegador/equipo** para comprobar los gráficos, el cuestionario y la selección histórica.
-
-La URL pública depende de la cuenta y el repositorio del grupo: **no se incluye una URL inventada ni se afirma que la publicación se haya realizado**.
 
 ## Reproducibilidad e integración
 
